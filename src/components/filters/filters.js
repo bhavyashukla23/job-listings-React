@@ -1,9 +1,10 @@
 import React from 'react';
 import Select from 'react-select';
-import {Form , InputGroup} from 'react-bootstrap';
+import { Form, InputGroup } from 'react-bootstrap';
+import './filters.css';
 
 
-const Filters =() =>{
+const Filters = () => {
 
     const options = {
         role: [
@@ -31,22 +32,47 @@ const Filters =() =>{
         ],
     };
 
-   return(
-    <div className="filters">
+    return (
+        <div className="filters">
 
-        <Select options={options.role} className="filter" placeholder="Role"/>
-        <Select options={options.experience} className="filter" placeholder="Minimum Experience"/>
-        <Select options={options.remote} className="filter" placeholder="Remote"/>
-        <Select options={options.salary} className="filter" placeholder="Minimum Salary"/>
-        <Select options={options.location} className="filter" placeholder="Location"/>
-        <Form>
-            <InputGroup>
-                <Form.Control placeholder='Search Company Name' />
-            </InputGroup>
-        </Form>
+            <Select
+                options={options.role}
+                className='filter'
+                placeholder='Role'
+            />
 
-    </div>
-   );
+            <Select
+                options={options.experience}
+                className='filter'
+                placeholder='Minimum Experience'
+            />
+
+            <Select
+                options={options.remote}
+                className='filter'
+                placeholder='Remote'
+            />
+
+            <Select
+                options={options.salary}
+                className='filter'
+                placeholder='Minimum Salary'
+            />
+
+            <Select
+                options={options.location}
+                className='filter'
+                placeholder='Location'
+            />
+
+            <Form>
+                <InputGroup>
+                    <Form.Control placeholder='Search Company Name' />
+                </InputGroup>
+            </Form>
+
+        </div>
+    );
 };
 
 export default Filters;

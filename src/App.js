@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Filters from './components/filters/filters';
 
 const App = () => {
