@@ -1,0 +1,122 @@
+/* Container for job listings */
+.jobs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px;
+  }
+  
+  /* Styling for each job card */
+  .job-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px ;
+    border-radius: 7px;
+    width: 350px;
+    margin: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    /* flex-grow: 1; */
+  }
+  
+  .logo{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+  }
+  
+  .job-details{
+    margin: 0px;
+  }
+  
+  /* Styling for truncated text */
+  .text {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  /* Styling for company information section */
+  .company-info {
+    display: flex;
+    align-items: center;
+    padding-bottom:10px;
+  }
+  
+  /* Styling for about company section */
+  .about-company {
+    padding: 10px 0;
+  }
+  
+  /* Styling for view more container */
+  .view-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+    margin-top: -200px;
+    height: 200px;
+    pointer-events: none;
+    background: linear-gradient(to top,
+        #ffffff 0%,
+        #fff 20%,
+        #ffffff00 100%);
+  }
+  
+  /* Styling for view more link */
+  .view-more {
+    color: blue;
+    padding: 5px;
+    pointer-events: auto;
+    text-decoration: none;
+  }
+  
+  /* Styling for both buttons */
+  .buttons {
+    padding: 10px 0;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    max-height: 400px;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: 17px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Styling for people icons in refferral button*/
+  .people {
+    width: auto;
+    height: 15px;
+    margin-right: 5px;
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+  
+  /* Styling for checkbox icon in experience */
+  .checkbox{
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    border-radius: 3px;  
+  }
+  
+  /* Styling for experience text */
+  .experience{
+    margin: 0;
+    margin-right: 10px;
+  }
+  
+  /* Styling for bottom-container section */
+  .exp-apply-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 1 100%;
+  }
+  
+  .icon{
+    width: auto;
+    height: 15px;
+  }
+  

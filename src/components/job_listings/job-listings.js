@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-// import Lightningicon from '../../assets/lightning-icon.png';
-// import Person1 from '../../assets/images.jpg';
-// import Person2 from '../../assets/pexels-pixabay.jpg';
-//import CheckBox from '../../assets/check-box.png';
+import Lightningicon from '../../assets/lightning-icon.png';
+import Person1 from '../../assets/images.jpg';
+import Person2 from '../../assets/pexels-pixabay.jpg';
+import CheckBox from '../../assets/check-box.png';
+import './job-listings.css';
 
 const Jobs = () => {
     const [jobs, setjobs] = useState([]);
@@ -44,7 +45,7 @@ const Jobs = () => {
                     <div className="salary">
                     <p className="salary-range">
                             Estimated Salary: {job.minJdSalary !== null ? `${job.minJdSalary} -` : 'Upto'} {job.maxJdSalary} {job.salaryCurrencyCode}
-                            {/* <img src={CheckBox} alt='checkbox' className='checkbox' /> */}
+                            <img src={CheckBox} alt='checkbox' className='checkbox' />
                         </p>
                     </div>
 
@@ -63,13 +64,13 @@ const Jobs = () => {
                         <p className="experience">{job.minExp != null  ? job.minExp : '0'} years</p>
 
                         <button className="buttons" style={{ backgroundColor: '#00ffee' }}>
-                            {/* <img src={Lightningicon} alt='lightning-icon' className='icon' /> */}
+                            <img src={Lightningicon} alt='lightning-icon' className='icon' />
                             Easy Apply
                         </button>
 
                         <button className='buttons' style={{ backgroundColor: '#007bff', color: '#fff' }}>
-                            {/* <img src={Person1} alt='person1' className='people' />
-                            <img src={Person2} alt='person2' className='people' /> */}
+                            <img src={Person1} alt='person1' className='people' />
+                            <img src={Person2} alt='person2' className='people' />
                             Unlock Referral Asks
                         </button>
 
