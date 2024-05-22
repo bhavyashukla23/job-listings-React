@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Lightningicon from '../../assets/lightning-icon.png';
 import Person1 from '../../assets/images.jpg';
 import Person2 from '../../assets/pexels-pixabay.jpg';
 import CheckBox from '../../assets/check-box.png';
 import './job-listings.css';
 
-const Jobs = () => {
+const Jobs = ({ filters }) => {
     const [jobs, setjobs] = useState([]);
+    const [filteredJobs, setFilteredJobs] = useState([]);
 
-    //toh fetch data from API
+    //to fetch data from API
     useState(() => {
         const fetchJobs = async () => {
             try {
@@ -28,10 +29,29 @@ const Jobs = () => {
         fetchJobs();
     }, []);
 
+    useEffect(() => {
+        const applyFilters = () => {
+            const filtered = jobs.filter(job => {
+                const matchesRole = filters.role ? job.jobRole.toLowerCase().includes(filters.role.value.toLowerCase()) : true;
+                const matchesExp = filters.minExp ? job.minExp >= parseInt(filters.minExp.value, 10) : true;
+                const matchesRemote = filters.remote && filters.remote.value === true ? job.location.toLowerCase().includes('remote') : true;
+                const matchesSalary = filters.minSal ? job.minJdSalary >= parseInt(filters.minSal.value, 10) : true;
+                const matchesLocation = filters.location ? job.location.toLowerCase().includes(filters.location.value.toLowerCase()) : true;
+                const matchesCompany = filters.companyName ? job.companyName.toLowerCase().includes(filters.companyName.toLowerCase()) : true;
+
+                return matchesRole && matchesExp && matchesRemote && matchesSalary && matchesLocation && matchesCompany;
+            });
+
+            setFilteredJobs(filtered);
+        };
+
+        applyFilters();
+    }, [filters, jobs]);
+
 
     return (
         <div className="jobs">
-            {jobs.map((job, index) => (
+            {filteredJobs.map((job, index) => (
                 <div className="job-card" key={index}>
                     <div className="company-info">
                     <img src={job.logoUrl} alt="Company Logo" className='logo' />
