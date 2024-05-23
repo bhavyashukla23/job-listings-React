@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Lightningicon from '../../assets/lightning-icon.png';
 import Person1 from '../../assets/images.jpg';
 import Person2 from '../../assets/pexels-pixabay.jpg';
@@ -9,7 +9,7 @@ const Jobs = ({ filters }) => {
     const [jobs, setjobs] = useState([]);
     const [filteredJobs, setFilteredJobs] = useState([]);
 
-    //to fetch data from API
+    // Fetching data from API when component mounts
     useState(() => {
         const fetchJobs = async () => {
             try {
@@ -29,6 +29,7 @@ const Jobs = ({ filters }) => {
         fetchJobs();
     }, []);
 
+    //To apply filters whenever filters or jobs change
     useEffect(() => {
         const applyFilters = () => {
             const filtered = jobs.filter(job => {
@@ -54,24 +55,29 @@ const Jobs = ({ filters }) => {
             {filteredJobs.map((job, index) => (
                 <div className="job-card" key={index}>
                     <div className="company-info">
-                    <img src={job.logoUrl} alt="Company Logo" className='logo' />
+                        {/* To display company logo */}
+                        <img src={job.logoUrl} alt="Company Logo" className='logo' />
                         <div>
+                            {/* To display job details */}
                             <h3 className="job-details">{job.jobRole}</h3>
                             <h2 className="job-details">{job.companyName}</h2>
                             <p className="job-details">{job.location}</p>
                         </div>
                     </div>
 
+                    {/* To display estimated salary range */}
                     <div className="salary">
-                    <p className="salary-range">
+                        <p className="salary-range">
                             Estimated Salary: {job.minJdSalary !== null ? `${job.minJdSalary} -` : 'Upto'} {job.maxJdSalary} {job.salaryCurrencyCode}
                             <img src={CheckBox} alt='checkbox' className='checkbox' />
                         </p>
                     </div>
 
                     <div className="about-company">
+                        {/* To display job description */}
                         <h3>About Company:</h3>
                         <p>{job.jobDetailsFromCompany}</p>
+                        {/* Link to view full job description */}
                         <div className="view-more-container">
                             <a href={job.jdLink} target="_blank" rel="noopener noreferrer" className="view-more">
                                 View Job
@@ -80,14 +86,17 @@ const Jobs = ({ filters }) => {
                     </div>
 
                     <div className="exp-apply-container">
+                        {/* To display minimum experience required */}
                         <p className="experience">Minimum Experience Required</p>
-                        <p className="experience">{job.minExp != null  ? job.minExp : '0'} years</p>
+                        <p className="experience">{job.minExp != null ? job.minExp : '0'} years</p>
 
+                        {/* Easy Apply button */}
                         <button className="buttons" style={{ backgroundColor: '#00ffee' }}>
                             <img src={Lightningicon} alt='lightning-icon' className='icon' />
                             Easy Apply
                         </button>
 
+                        {/* Unlock Referral Asks button */}
                         <button className='buttons' style={{ backgroundColor: '#007bff', color: '#fff' }}>
                             <img src={Person1} alt='person1' className='people' />
                             <img src={Person2} alt='person2' className='people' />

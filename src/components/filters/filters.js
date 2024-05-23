@@ -5,7 +5,7 @@ import './filters.css';
 
 
 const Filters = ({ onUpdateFilters }) => {
-
+    // Defined filter options for various fields
     const options = {
         role: [
             { value: "ios", label: "iOS" },
@@ -32,6 +32,7 @@ const Filters = ({ onUpdateFilters }) => {
         ],
     };
 
+    // Initialized state for filters with default values
     const [filters, setFilters] = useState({
         role: null,
         minExp: null,
@@ -41,10 +42,12 @@ const Filters = ({ onUpdateFilters }) => {
         companyName: ''
     });
 
+    // To update filters when the filters state changes
     useEffect(() => {
         onUpdateFilters(filters);
     }, [filters, onUpdateFilters]);
 
+    // Handling change in filter fields
     const handleChange = (field, value) => {
         setFilters(prevFilters => ({
             ...prevFilters,
@@ -54,7 +57,7 @@ const Filters = ({ onUpdateFilters }) => {
 
     return (
         <div className="filters">
-
+            {/* Dropdown for selecting from different filter options */}
             <Select
                 options={options.role}
                 className='filter'
@@ -95,6 +98,7 @@ const Filters = ({ onUpdateFilters }) => {
                 onChange={value => handleChange('location', value)}
             />
 
+            {/* Input field for searching by company name */}
             <Form>
                 <InputGroup>
                     <Form.Control placeholder='Search Company Name'
