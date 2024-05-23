@@ -26,7 +26,7 @@ These instructions will help you set up and run the application on your local ma
 1. Clone the repository to your local machine:
 
    ```sh
-   git clone https://github.com/your-username/job-listings-app.git
+   git clone https://github.com/bhavyashukla23/job-listings.git
    
 2. Install the dependencies:
 
@@ -67,7 +67,7 @@ The following dependencies are required for this project:
   
 
 
-  ### Important Files
+### Important Files
   
 - src/components/Filters.js - Contains the filter component logic and rendering
 - src/components/Jobs.js - Contains the job listings component logic and rendering
